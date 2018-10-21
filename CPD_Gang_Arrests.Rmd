@@ -1,11 +1,15 @@
 ---
-title: "CPD Gang Arrests"
+title: "Mapping the CPD Gang Database"
 author: "Princess Ojiaku"
 date: "8/26/2018"
 output: html_document
 ---
 
-```{r setup, include=TRUE, warning=FALSE, error=FALSE}
+I obtained the Chicago Police Department's gang database from Propublica. It's a dataset that CPD created to list individuals that classify as gang members.
+
+Here, I'm making this gang data into a choropleth map of Chicago, which will display shading based on the number of individuals indicated as being gang members in each of Chicago's community areas.
+
+```{r setup, include=FALSE, warning=FALSE, error=FALSE}
 
 library(readxl)
 library(tidyverse)
@@ -24,7 +28,7 @@ This reads in our data that includes the suspected gang member arrest data, poli
 
 Then we read in the shapefile of the CPD police beats, so we can map them. 
 
-```{r read in data, warning=F, error=F}
+```{r read in data, include=T, warning=F, error=F}
 
 df_gang_318 <- read_excel("CPD Gang Data/CPD gang database 3-18.xlsx", sheet=1)
 
@@ -77,7 +81,7 @@ CPD_gang_map2 <- cpd_beats_gangs %>%
 
 ## Ploting the CPD data
 
-Using a blue color palette, and including a popup of the police beat number and the number of arrests in that police beat.
+Darker blue areas indicate more gang classifications. Select the community area to view a popup of the police beat and the number of arrests.
 
 ```{r cpd beats, warning=FALSE, error=FALSE}
 
