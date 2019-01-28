@@ -5,9 +5,11 @@ date: "8/26/2018"
 output: html_document
 ---
 
-I obtained the Chicago Police Department's gang database from Propublica. It's a dataset that CPD created to list individuals that classify as gang members.
+I obtained the Chicago Police Department's gang database from [ProPublica](https://www.propublica.org/article/politic-il-insider-chicago-gang-database). It's dataset of people who CPD has classified as gang members. However, it was found to be full of errors and inaccuracies, including outdated information like supposedly-active elderly gang members. 
 
-Here, I'm making this gang data into a choropleth map of Chicago, which will display shading based on the number of individuals indicated as being gang members in each of Chicago's community areas.
+Here, I'm making this gang data into a choropleth map of Chicago, which will display shading based on the number of individuals classified as gang members in each of Chicago's community areas/police beats. 
+
+This map provides an accessible way to display how many people were put into the database and the police beat under which they were classified.
 
 ```{r setup, include=FALSE, warning=FALSE, error=FALSE}
 
@@ -24,7 +26,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Read in the CPD Gang Database & police beat shape file
 
-This reads in our data that includes the suspected gang member arrest data, police beat in which the arrest occured, the gang affliation, and the age and race of the suspect. The data goes from 1999 to March of 2018.
+This reads in our data that includes the suspected gang member arrest data, police beat in which the arrest occured, the gang affliation, and the age and race of the suspect. The data goes from March 1999 -- March 2018.
 
 Then we read in the shapefile of the CPD police beats, so we can map them. 
 
@@ -36,7 +38,7 @@ df_gang_318 <- read_excel("CPD Gang Data/CPD gang database 3-18.xlsx", sheet=1)
 map_filepath <- "Boundaries_Police Beats/geo_export_CPD_BEATS.shp"
 cpd_beats <- st_read(map_filepath)
 
-#cleaning the data -- take out any rows with NA for a police beat. 
+#cleaning the data -- take out any rows with NA for a police beat since we can't map those 
 
 df_gangs <- filter(df_gang_318, !is.na(O_BEAT))
 cpd_beats <- filter(cpd_beats, !is.na(beat_num))
