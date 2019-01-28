@@ -5,13 +5,13 @@ date: "8/26/2018"
 output: html_document
 ---
 
-I obtained the Chicago Police Department's gang database from [ProPublica](https://www.propublica.org/article/politic-il-insider-chicago-gang-database). It's dataset of people who CPD has classified as gang members. However, it was found to be full of errors and inaccuracies, including outdated information like supposedly-active elderly gang members. 
+I obtained the Chicago Police Department's gang database from [ProPublica](https://www.propublica.org/article/politic-il-insider-chicago-gang-database). It's a dataset of CPD-classified as gang members. However, it was found to be full of errors and inaccuracies, including outdated information like gang members who are still active at the ripe old age of 132. 
 
-Here, I'm making this gang data into a choropleth map of Chicago, which will display shading based on the number of individuals classified as gang members in each of Chicago's police beats. 
+I made this gang database into a choropleth map of Chicago, which displays shading based on the number of individuals classified as gang members in each of Chicago's police beats. 
 
 This map provides an accessible way to display how many people were put into the database and the police beat under which they were classified. 
 
-Note: I've gone with "Number of Arrests" as a shorthand for how many individuals were classified as being in a gang, although the data only indicates the date they were entered into the system and associated with a particular police beat, which may or may not be due to an arrest.
+Note: I've used "Number of Arrests" as a shorthand for how individuals were classified as gang members, although it is possible that they have have been classified by other means than arrest. The data used in the map only indicates the date that the person was entered into the gang database and associated with a particular police beat, not whether or not they were arrested.
 
 ```{r setup, include=FALSE, warning=FALSE, error=FALSE}
 
