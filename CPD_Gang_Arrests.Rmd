@@ -7,9 +7,11 @@ output: html_document
 
 I obtained the Chicago Police Department's gang database from [ProPublica](https://www.propublica.org/article/politic-il-insider-chicago-gang-database). It's dataset of people who CPD has classified as gang members. However, it was found to be full of errors and inaccuracies, including outdated information like supposedly-active elderly gang members. 
 
-Here, I'm making this gang data into a choropleth map of Chicago, which will display shading based on the number of individuals classified as gang members in each of Chicago's community areas/police beats. 
+Here, I'm making this gang data into a choropleth map of Chicago, which will display shading based on the number of individuals classified as gang members in each of Chicago's police beats. 
 
-This map provides an accessible way to display how many people were put into the database and the police beat under which they were classified.
+This map provides an accessible way to display how many people were put into the database and the police beat under which they were classified. 
+
+Note: I've gone with "Number of Arrests" as a shorthand for how many individuals were classified as being in a gang, although the data only indicates the date they were entered into the system and associated with a particular police beat, which may or may not be due to an arrest.
 
 ```{r setup, include=FALSE, warning=FALSE, error=FALSE}
 
